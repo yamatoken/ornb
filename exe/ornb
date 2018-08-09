@@ -1,3 +1,18 @@
 #!/usr/bin/env ruby
-
+require 'systemu'
+require 'colorize'
+require 'thor'
+require 'fileutils'
 require "ornb"
+
+module Ornb
+  class CLI < Thor
+    def initialize(*argv)
+      super(*argv)
+    end
+
+    desc 'readme', 'make initial README.org'
+    def readme(*argv)
+      p s_file = File.join(__FILE__, '../lib/reame/README.org')
+      FileUtils.cp(s_file, '.')
+    end
