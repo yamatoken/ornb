@@ -1,135 +1,21 @@
 #+OPTIONS: ^:{}
-#+STARTUP: indent nolineimages nofold
-#+TITLE: irnb(i ruby note book) or org ruby note book
-#+AUTHOR: 関西学院大学・理工学部・情報科学科　西谷滋人 2018
+#+STARTUP: indent nolineimages
+#+TITLE: hogehoge
+#+AUTHOR: name
 #+EMAIL:     (concat "nishitani@kwansei.ac.jp")
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 
 #+SETUPFILE: /Users/bob/Github/org-html-themes/setup/theme-readtheorg-local-daddygongon.setup
 
-* Irnb
-ipynbみたいにnotebookをorg+rubyで容易に作成できるsystem
+* README.org
+** 記述
+全ての基本となるREADME.orgの雛形．
 
-* background
+拡張によって追加する方がいいのか，あるいはあらかじめ
+記述があって，さらに使い方の基本みたいなのがあるのがいいよね．
 
-文書作成は規模の小さいうちはいいが大きくなるにつれて破綻する．
-それは，毎週のレポートでもそうだし，さらに学期末試験や卒業論文に
-なったら悲惨．
+** html生成
+   - c-c c-e h(tml) o(ut)
+   で生成してくれる．
 
-それらをうまく乗り越えるには，小さい時と大きくなった時で，
-文書やdirectoryが相似形になっているフラクタル構造が理想的．
-そうすれば規模が大きくなっても対応できるという安心感があるから．
-どのような粒度の知識であろうと，学習の最初から構造化されたノートを
-提供しようというのがirnbの理想．そしてstageの進化をsupportしてくれる．．．
-
-gemspecは面白い役割を持ったfileかも．
-規模が大きくなって下に増やしていく時にはpercpectiveがわかりやすいが，
-上に付け足す，あるいは下に入る時にはそれらを統括する箇所，
-本でいうところの章の概要みたいなものかな．．．
-でもそれはREADME.orgだな．．．
-上へのlinkはdirectoryで管理できないから．
-
-末枝と主枝だけは違う構造だな．
-だって，main branchのREADME.orgはtocだろうし，
-末枝はfirststage的構造だろうから．
-
-* Installation
-Add this line to your application's Gemfile:
-
-#+BEGIN_SRC ruby
-    gem 'irnb'
-#+END_SRC
-
-And then execute:
-
-#+BEGIN_EXAMPLE
-    $ bundle
-#+END_EXAMPLE
-
-Or install it yourself as:
-
-#+BEGIN_EXAMPLE
-    $ gem install irnb
-#+END_EXAMPLE
-
-* Usage
-
-
-* Development
-** 基本コンセプト
-*** rubyとpythonは違うよね．
-rubyの世界に住んでいて，pythonを始めるとその文化の違いに驚く
-|-----------------------------------------------+---------------------------------------|
-| ruby                                          | python                                |
-|-----------------------------------------------+---------------------------------------|
-| classにする，testを描く                       | classを呼んで，reportを書く           |
-| classはsystemを作るための環境                 | classは一群の計算のまとまり           |
-| 色々な振る舞いをするclassを寄せ集めてcontroll | 単純な作業を繰り返すclassを別々に使う |
-| thor, gem, bundler, rake                      | notebook, numpy, matplotlib           |
-|-----------------------------------------------+---------------------------------------|
-
-で，どっちがいいというのではないが，
-: rubyにもpython的な文化を取り入れることが可能か
-という視点でsystemあるいはgemを試作してみる．
-
-提供したいのは，jupyter notebookみたいなreport作成環境をrubyの文化で提供すること．
-今のところのアイデアは，
-- 文章はorgで
-- 計算はrubyで
-- コマンドはrakeで
-- plotはgnuplotで
-scaffoldを提供する予定．
-** command line appliにしてしまう，softwareを作るというより，systemを作るという視点．
-- Github, Github edu...
-- ruby, gems, OSS gate(pull request)
-
-** gnuplot
-rubyのgnuplotを使うのは，データの加工から表示までを一気にしたいから．
-それができるとデータとその管理の一元化が可能となる．
-ところが，
-- 同じデータから違うプロットを作ったり，
-- 同じプロットを違うデータで作ったり，
-- 近似曲線を変えて見たりという
-試行錯誤がデータの整理では必要になる．
-これらの作業を効率的におこなうシステムがあると便利だよね．
-Mapleは一部それができている．試行錯誤のところが．．．
-でも，編集の不自由さによって，あまり効率が良くない．
-惜しいな．Maple... 本当に．
-
-data plotの視点は，
-- 変わるところと変わらないところ
-  - mapleっぽくしていく．．．
-なんだろうが，
-- commandにするか設定(gnuplot tmp.gplも含めて)にするかrakeにするか?
-- classかDSLか？
-自然な記述になるのはどっちだろう? あるいはそう思うのは?
-
-** Contributing
-   :PROPERTIES:
-   :CUSTOM_ID: contributing
-   :END:
-
-Bug reports and pull requests are welcome on GitHub at
-https://github.com/[USERNAME]/irnb. This project is intended to be a
-safe, welcoming space for collaboration, and contributors are expected
-to adhere to the [[http://contributor-covenant.org][Contributor
-Covenant]] code of conduct.
-
-** License
-   :PROPERTIES:
-   :CUSTOM_ID: license
-   :END:
-
-The gem is available as open source under the terms of the
-[[https://opensource.org/licenses/MIT][MIT License]].
-
-** Code of Conduct
-   :PROPERTIES:
-   :CUSTOM_ID: code-of-conduct
-   :END:
-
-Everyone interacting in the Irnb project's codebases, issue trackers,
-chat rooms and mailing lists is expected to follow the
-[[https://github.com/%5BUSERNAME%5D/irnb/blob/master/CODE_OF_CONDUCT.md][code
-of conduct]].
