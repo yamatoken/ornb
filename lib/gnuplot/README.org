@@ -1,0 +1,21 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages nofold
+#+TITLE: ****の研究
+#+AUTHOR: 関西学院大学・理工学部・情報科学科　西谷滋人 2018
+#+EMAIL:     (concat "nishitani@kwansei.ac.jp")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+
+#+SETUPFILE: /Users/bob/Github/org-html-themes/setup/theme-readtheorg-local-daddygongon.setup
+
+* 仮説
+* データ
+: rake -f data_hudle.rake simple
+* 解析
+: rake -f data_analysis.rake simple
+* plot
+: rake -f gnuplot.rake simple
+
+* 議論
+* 結論
+* 参考文献

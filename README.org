@@ -11,7 +11,7 @@
 * Irnb
 ipynbみたいにnotebookをorg+rubyで容易に作成できるsystem
 
-** background
+* background
 
 文書作成は規模の小さいうちはいいが大きくなるにつれて破綻する．
 それは，毎週のレポートでもそうだし，さらに学期末試験や卒業論文に
@@ -34,7 +34,7 @@ gemspecは面白い役割を持ったfileかも．
 だって，main branchのREADME.orgはtocだろうし，
 末枝はfirststage的構造だろうから．
 
-** Installation
+* Installation
 Add this line to your application's Gemfile:
 
 #+BEGIN_SRC ruby
@@ -53,23 +53,57 @@ Or install it yourself as:
     $ gem install irnb
 #+END_EXAMPLE
 
-** Usage
+* Usage
 
 
-** Development
-   :PROPERTIES:
-   :CUSTOM_ID: development
-   :END:
+* Development
+** 基本コンセプト
+*** rubyとpythonは違うよね．
+rubyの世界に住んでいて，pythonを始めるとその文化の違いに驚く
+|-----------------------------------------------+---------------------------------------|
+| ruby                                          | python                                |
+|-----------------------------------------------+---------------------------------------|
+| classにする，testを描く                       | classを呼んで，reportを書く           |
+| classはsystemを作るための環境                 | classは一群の計算のまとまり           |
+| 色々な振る舞いをするclassを寄せ集めてcontroll | 単純な作業を繰り返すclassを別々に使う |
+| thor, gem, bundler, rake                      | notebook, numpy, matplotlib           |
+|-----------------------------------------------+---------------------------------------|
 
-After checking out the repo, run =bin/setup= to install dependencies.
-Then, run =rake test= to run the tests. You can also run =bin/console=
-for an interactive prompt that will allow you to experiment.
+で，どっちがいいというのではないが，
+: rubyにもpython的な文化を取り入れることが可能か
+という視点でsystemあるいはgemを試作してみる．
 
-To install this gem onto your local machine, run
-=bundle exec rake install=. To release a new version, update the version
-number in =version.rb=, and then run =bundle exec rake release=, which
-will create a git tag for the version, push git commits and tags, and
-push the =.gem= file to [[https://rubygems.org][rubygems.org]].
+提供したいのは，jupyter notebookみたいなreport作成環境をrubyの文化で提供すること．
+今のところのアイデアは，
+- 文章はorgで
+- 計算はrubyで
+- コマンドはrakeで
+- plotはgnuplotで
+scaffoldを提供する予定．
+** command line appliにしてしまう，softwareを作るというより，systemを作るという視点．
+- Github, Github edu...
+- ruby, gems, OSS gate(pull request)
+
+** gnuplot
+rubyのgnuplotを使うのは，データの加工から表示までを一気にしたいから．
+それができるとデータとその管理の一元化が可能となる．
+ところが，
+- 同じデータから違うプロットを作ったり，
+- 同じプロットを違うデータで作ったり，
+- 近似曲線を変えて見たりという
+試行錯誤がデータの整理では必要になる．
+これらの作業を効率的におこなうシステムがあると便利だよね．
+Mapleは一部それができている．試行錯誤のところが．．．
+でも，編集の不自由さによって，あまり効率が良くない．
+惜しいな．Maple... 本当に．
+
+data plotの視点は，
+- 変わるところと変わらないところ
+  - mapleっぽくしていく．．．
+なんだろうが，
+- commandにするか設定(gnuplot tmp.gplも含めて)にするかrakeにするか?
+- classかDSLか？
+自然な記述になるのはどっちだろう? あるいはそう思うのは?
 
 ** Contributing
    :PROPERTIES:
