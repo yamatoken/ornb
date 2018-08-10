@@ -1,5 +1,5 @@
 #+OPTIONS: ^:{}
-#+STARTUP: indent nolineimages nofold
+#+STARTUP: indent nolineimages
 #+TITLE: irnb(i ruby note book) or org ruby note book
 #+AUTHOR: 関西学院大学・理工学部・情報科学科　西谷滋人 2018
 #+EMAIL:     (concat "nishitani@kwansei.ac.jp")
@@ -54,7 +54,18 @@ Or install it yourself as:
 #+END_EXAMPLE
 
 * Usage
-
+#+begin_example
+Commands:
+  ornb help [COMMAND]    # Describe available commands or one specific command
+  ornb link_check [FILE] # link check on FILE(README.org)
+  ornb readme            # make initial README.org
+#+end_example
+** readme
+デフォルトのREADME.orgを作る
+** link_check
+FILE(デフォルトはREADME.org)のlink切れをチェック．切れている時には配下のdirectoryから候補を提示．
+- \[[file][name]\]には対応
+- \[[#own_item]\]にも対応
 
 * Development
 ** 基本コンセプト
