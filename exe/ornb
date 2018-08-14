@@ -22,6 +22,19 @@ module Ornb
       end
     end
 
+    desc 'plot', 'cp gnuplot.rake'
+    def plot(*argv)
+      lib = File.expand_path("../../lib", __FILE__)
+      target = 'gnuplot.rake'
+      p s_file = File.join(lib, File.basename(target,'.rake'), target)
+      p Dir.entries('.')
+      if File.exists?(target)
+        puts target + " exists. "
+      else
+        FileUtils.cp(s_file, '.')
+      end
+    end
+
     desc 'link_check', 'link check'
     def link_check(*argv)
       file = argv[0] || 'README.org'
