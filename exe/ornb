@@ -41,6 +41,7 @@ module Ornb
       puts "target_file: "+file
       File.readlines(file).each_with_index do |line, i|
         line.scan(/\[\[(.+?)\]\]/) do |match|
+          p match
           link = (m = match[0].match(/(.+)\]\[/) )? m[1] : match[0].to_s
           unless File.exists?(link)
             next if link.match(/^\#/)
