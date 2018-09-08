@@ -1,0 +1,260 @@
+% Created 2018-09-08 土 14:37
+
+  \documentclass{jsarticle}
+  \usepackage[dvipdfmx]{graphicx}
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\setcounter{secnumdepth}{2}
+\author{関西学院大学・理工学部・情報科学科　西谷滋人 2018}
+\date{\today}
+\title{irnb(i ruby note book) or org ruby note book}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.3.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Irnb}
+\label{sec-1}
+ipynbみたいにnotebookをorg+rubyで容易に作成できるsystem
+
+org\_ruby\_general\_note\_bookなんて名前がいいかな．
+
+\section{background}
+\label{sec-2}
+\subsection{知識はツリー構造でない}
+\label{sec-2-1}
+文書作成は規模の小さいうちはいいが大きくなるにつれて破綻する．
+それは，毎週のレポートでもそうだし，さらに学期末試験や卒業論文に
+なったら悲惨．
+
+それらをうまく乗り越えるには，小さい時と大きくなった時で，
+文書やdirectoryが相似形になっているフラクタル構造が理想的．
+そうすれば規模が大きくなっても対応できるという安心感があるから．
+どのような粒度の知識であろうと，学習の最初から構造化されたノートを
+提供しようというのがirnbの理想．そしてstageの進化をsupportしてくれる．．．
+
+gemspecは面白い役割を持ったfileかも．
+規模が大きくなって下に増やしていく時にはperspectiveがわかりやすいが，
+上に付け足す，あるいは下に入る時にはそれらを統括する箇所，
+本でいうところの章の概要みたいなものかな．．．
+でもそれはREADME.orgだな．．．
+上へのlinkはdirectoryで管理できないから．
+
+末枝と主枝だけは違う構造だな．
+だって，main branchのREADME.orgはtocだろうし，
+末枝はfirst stage的構造だろうから．
+
+\subsection{問題がセミラティスで解決する？}
+\label{sec-2-2}
+アレクサンダーのセミラティスはいいアイデアかもしれないが，それが
+今感じているfileシステムの引っかかりの本質ではなさそう．
+上で述べている逆アクセスは本質かもしれないが.
+
+\url{file:///Users/bob/Desktop/phys_com_r10} でtree -L 1表示をorgに取り込んだが，
+修正するとともに自動更新する方法ないかな．
+
+\begin{itemize}
+\item リンク切れなんだけど，そいつに入れるか．
+\item なら，リンクを自動生成するようにするか．
+
+\item orgに
+\end{itemize}
+\begin{verbatim}
+.
+├── CODE_OF_CONDUCT.md
+├── Gemfile
+├── Gemfile.lock
+├── LICENSE.txt
+├── README.html
+├── README.html~
+├── README.org
+├── Rakefile
+├── bin
+│   ├── console
+│   └── setup
+├── exe
+│   └── ornb
+├── lib
+│   ├── gnuplot
+│   ├── ornb
+│   ├── ornb.rb
+│   ├── platex
+│   └── readme
+├── ornb.gemspec
+├── pkg
+│   └── ornb-0.1.0.gem
+└── test
+    ├── ornb_test.rb
+    └── test_helper.rb
+
+9 directories, 16 files
+\end{verbatim}
+とかしてみよう．
+
+\subsection{platex}
+\label{sec-2-3}
+\url{file:///Users/bob/materials_science/boundary/shiraki}でformatの定まったpdf作成を試作．
+結局platex.rakeに変更箇所を直書きしている．
+
+\begin{itemize}
+\item hyperrefで出るエラーを抑えるために，dvipdfmxを指定．
+\item pdfのしおりの文字化けを防ぐために，pxjahyperを利用．
+\end{itemize}
+
+\section{Installation}
+\label{sec-3}
+Add this line to your application's Gemfile:
+
+\begin{verbatim}
+gem 'irnb'
+\end{verbatim}
+
+And then execute:
+
+\begin{verbatim}
+$ bundle
+\end{verbatim}
+
+Or install it yourself as:
+
+\begin{verbatim}
+$ gem install irnb
+\end{verbatim}
+
+\section{Usage}
+\label{sec-4}
+\begin{verbatim}
+Commands:
+  ornb help [COMMAND]    # Describe available commands or one specific command
+  ornb link_check [FILE] # link check on FILE(README.org)
+  ornb readme            # make initial README.org
+\end{verbatim}
+\subsection{readme}
+\label{sec-4-1}
+デフォルトのREADME.orgを作る
+\subsection{link\_check}
+\label{sec-4-2}
+FILE(デフォルトはREADME.org)のlink切れをチェック．切れている時には配下のdirectoryから候補を提示．
+\begin{itemize}
+\item \[[file][name]\]には対応
+\item \[[#own_item]\]にも対応
+\end{itemize}
+
+\section{Development}
+\label{sec-5}
+\subsection{基本コンセプト}
+\label{sec-5-1}
+\subsubsection*{rubyとpythonは違うよね．}
+\label{sec-5-1-1}
+rubyの世界に住んでいて，pythonを始めるとその文化の違いに驚く
+\begin{center}
+\begin{tabular}{ll}
+\hline
+ruby & python\\
+\hline
+classにする，testを描く & classを呼んで，reportを書く\\
+classはsystemを作るための環境 & classは一群の計算のまとまり\\
+色々な振る舞いをするclassを寄せ集めてcontroll & 単純な作業を繰り返すclassを別々に使う\\
+thor, gem, bundler, rake & notebook, numpy, matplotlib\\
+\hline
+\end{tabular}
+\end{center}
+
+で，どっちがいいというのではないが，
+\begin{verbatim}
+rubyにもpython的な文化を取り入れることが可能か
+\end{verbatim}
+という視点でsystemあるいはgemを試作してみる．
+
+提供したいのは，jupyter notebookみたいなreport作成環境をrubyの文化で提供すること．
+今のところのアイデアは，
+\begin{itemize}
+\item 文章はorgで
+\item 計算はrubyで
+\item コマンドはrakeで
+\item plotはgnuplotで
+\end{itemize}
+scaffoldを提供する予定．
+\subsection{command line appliにしてしまう，softwareを作るというより，systemを作るという視点．}
+\label{sec-5-2}
+\begin{itemize}
+\item Github, Github edu\ldots{}
+\item ruby, gems, OSS gate(pull request)
+\end{itemize}
+
+\subsection{gnuplot}
+\label{sec-5-3}
+rubyのgnuplotを使うのは，データの加工から表示までを一気にしたいから．
+それができるとデータとその管理の一元化が可能となる．
+ところが，
+\begin{itemize}
+\item 同じデータから違うプロットを作ったり，
+\item 同じプロットを違うデータで作ったり，
+\item 近似曲線を変えて見たりという
+\end{itemize}
+試行錯誤がデータの整理では必要になる．
+これらの作業を効率的におこなうシステムがあると便利だよね．
+Mapleは一部それができている．試行錯誤のところが．．．
+でも，編集の不自由さによって，あまり効率が良くない．
+惜しいな．Maple\ldots{} 本当に．
+
+data plotの視点は，
+\begin{itemize}
+\item 変わるところと変わらないところ
+\begin{itemize}
+\item mapleっぽくしていく．．．
+\end{itemize}
+\end{itemize}
+なんだろうが，
+\begin{itemize}
+\item commandにするか設定(gnuplot tmp.gplも含めて)にするかrakeにするか?
+\item classかDSLか？
+\end{itemize}
+自然な記述になるのはどっちだろう? あるいはそう思うのは?
+
+\subsection{Contributing}
+\label{sec-5-4}
+
+Bug reports and pull requests are welcome on GitHub at
+\url{https://github.com/[USERNAME]/irnb}. This project is intended to be a
+safe, welcoming space for collaboration, and contributors are expected
+to adhere to the \href{http://contributor-covenant.org}{Contributor
+Covenant} code of conduct.
+
+\subsection{License}
+\label{sec-5-5}
+
+The gem is available as open source under the terms of the
+\href{https://opensource.org/licenses/MIT}{MIT License}.
+
+\subsection{Code of Conduct}
+\label{sec-5-6}
+
+Everyone interacting in the Irnb project's codebases, issue trackers,
+chat rooms and mailing lists is expected to follow the
+\href{https://github.com/\%5BUSERNAME\%5D/irnb/blob/master/CODE_OF_CONDUCT.md}{code
+of conduct}.
+% Emacs 25.3.1 (Org mode 8.2.10)
+\end{document}

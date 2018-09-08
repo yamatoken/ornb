@@ -11,8 +11,10 @@
 * Irnb
 ipynbみたいにnotebookをorg+rubyで容易に作成できるsystem
 
-* background
+org_ruby_general_note_bookなんて名前がいいかな．
 
+* background
+** 知識はツリー構造でない
 文書作成は規模の小さいうちはいいが大きくなるにつれて破綻する．
 それは，毎週のレポートでもそうだし，さらに学期末試験や卒業論文に
 なったら悲惨．
@@ -24,7 +26,7 @@ ipynbみたいにnotebookをorg+rubyで容易に作成できるsystem
 提供しようというのがirnbの理想．そしてstageの進化をsupportしてくれる．．．
 
 gemspecは面白い役割を持ったfileかも．
-規模が大きくなって下に増やしていく時にはpercpectiveがわかりやすいが，
+規模が大きくなって下に増やしていく時にはperspectiveがわかりやすいが，
 上に付け足す，あるいは下に入る時にはそれらを統括する箇所，
 本でいうところの章の概要みたいなものかな．．．
 でもそれはREADME.orgだな．．．
@@ -32,7 +34,62 @@ gemspecは面白い役割を持ったfileかも．
 
 末枝と主枝だけは違う構造だな．
 だって，main branchのREADME.orgはtocだろうし，
-末枝はfirststage的構造だろうから．
+末枝はfirst stage的構造だろうから．
+
+** 問題がセミラティスで解決する？
+アレクサンダーのセミラティスはいいアイデアかもしれないが，それが
+今感じているfileシステムの引っかかりの本質ではなさそう．
+上で述べている逆アクセスは本質かもしれないが.
+
+[[/Users/bob/Desktop/phys_com_r10]] でtree -L 1表示をorgに取り込んだが，
+修正するとともに自動更新する方法ないかな．
+
+- リンク切れなんだけど，そいつに入れるか．
+- なら，リンクを自動生成するようにするか．
+
+- orgに
+#+begin_example tree -L 2
+** ./test
+- [[./test/test_helper.rb]]
+- [[./test/ornb_test.rb]]
+** ./bin
+- [[./bin/setup]]
+- [[./bin/console]]
+** ./lib
+- [[./lib/ornb]]
+- [[./lib/platex]]
+- [[./lib/gnuplot]]
+- [[./lib/readme]]
+- [[./lib/ornb.rb]]
+** ./exe
+- [[./exe/ornb]]
+- [[./exe/tree.rb~]]
+- [[./exe/tree.rb]]
+** ./pkg
+- [[./pkg/ornb-0.1.0.gem]]
+
+
+- [[./CODE_OF_CONDUCT.md]]
+- [[./README.aux]]
+- [[./README.log]]
+- [[./README.html]]
+- [[./ornb.gemspec]]
+- [[./Rakefile]]
+- [[./README.tex]]
+- [[./README.out]]
+- [[./Gemfile]]
+- [[./Gemfile.lock]]
+- [[./README.org]]
+- [[./LICENSE.txt]]
+#+end_example
+とかしてみよう．
+
+** platex
+[[/Users/bob/materials_science/boundary/shiraki]]でformatの定まったpdf作成を試作．
+結局platex.rakeに変更箇所を直書きしている．
+
+- hyperrefで出るエラーを抑えるために，dvipdfmxを指定．
+- pdfのしおりの文字化けを防ぐために，pxjahyperを利用．
 
 * Installation
 Add this line to your application's Gemfile:

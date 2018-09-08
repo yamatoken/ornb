@@ -29,13 +29,14 @@ EOS
   cont = File.read("#{file}.tex")
   cont.gsub!('{jsarticle}','[a4j,twocolumn]{jsarticle}')
 #  cont.gsub!('{graphicx}','[dvipdfmx]{graphicx}')
-  cont.gsub!('{hyperref}','[dvipdfmx]{hyperref}')
+  cont.gsub!('{hyperref}',"[dvipdfmx]{hyperref}\n\\usepackage{pxjahyper}")
   cont.gsub!(/\\setcounter{secnumdepth}{(.+?)}/, textheight)
   cont.gsub!(/\\author{(.+?)}/,'')
   cont.gsub!(/\\date{(.+?)}/,'')
   cont.gsub!(/\\title{(.+?)}/, title_author)
   cont.gsub!(/\\tableofcontents/,'')
   File.open("#{file}.tex",'w'){ |f| f.print cont }
+  system "rake -f #{__FILE__} platex"
 end
 
 desc "platex"
