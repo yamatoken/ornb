@@ -48,23 +48,14 @@ gemspecは面白い役割を持ったfileかも．
 - なら，リンクを自動生成するようにするか．
 
 - orgに
-#+begin_example tree -L 2
+
+#+begin_example tree
 ** ./test
 - [[./test/test_helper.rb]]
 - [[./test/ornb_test.rb]]
 ** ./bin
 - [[./bin/setup]]
 - [[./bin/console]]
-** ./lib
-- [[./lib/ornb]]
-- [[./lib/platex]]
-- [[./lib/gnuplot]]
-- [[./lib/readme]]
-- [[./lib/ornb.rb]]
-** ./exe
-- [[./exe/ornb]]
-- [[./exe/tree.rb~]]
-- [[./exe/tree.rb]]
 ** ./pkg
 - [[./pkg/ornb-0.1.0.gem]]
 
@@ -81,8 +72,15 @@ gemspecは面白い役割を持ったfileかも．
 - [[./Gemfile.lock]]
 - [[./README.org]]
 - [[./LICENSE.txt]]
+
 #+end_example
+
 とかしてみよう．
+
+: ornb tree
+でcurrent dir'.'以下のdirectoryのlinkが作成される．
+
+残念ながら，まだorg文書の自動更新まではできていない．しかし，いい感じ．
 
 ** platex
 [[/Users/bob/materials_science/boundary/shiraki]]でformatの定まったpdf作成を試作．
