@@ -35,10 +35,10 @@ module Ornb
       end
     end
 
-    desc 'platex', 'cp platex.rake'
-    def platex(*argv)
+        desc 'plot', 'cp gnuplot.rake'
+    def plot(*argv)
       lib = File.expand_path("../../lib", __FILE__)
-      target = 'platex.rake'
+      target = 'gnuplot.rake'
       p s_file = File.join(lib, File.basename(target,'.rake'), target)
       p Dir.entries('.')
       if File.exists?(target)
