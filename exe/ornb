@@ -51,8 +51,9 @@ module Ornb
     desc 'tree', 'tree display'
     def tree(*argv)
       system 'rm -f *~ *# #*'
-      $deep_level = 2
-      cont =  print_dir('.', 0, '')
+      file = argv[0] || '.'
+      $deep_level = argv[1].to_i || 2
+      cont =  print_dir(file, 0, '')
       print "\n\n"+cont+"\n"
     end
 
