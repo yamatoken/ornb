@@ -50,9 +50,10 @@ module Ornb
 
     desc 'tree', 'tree display'
     def tree(*argv)
+      dir = ARGV[1] || '.'
+      @max_recur_level = ARGV[2].to_i || 2
       system 'rm -f *~ *# #*'
-      $deep_level = 2
-      cont =  print_dir('.', 0, '')
+      cont =  print_dir(dir, 0, '')
       print "\n\n"+cont+"\n"
     end
 
@@ -78,7 +79,7 @@ module Ornb
 
     def print_dir(file,level,cont)
       level += 1
-      return "- [[#{file}]]\n" if level > $deep_level
+      return "- [[#{file}]]\n" if level > @max_recur_level
       print "*"*level+" #{file}\n"
       dir = File.join(file,"*")
       Dir.glob(dir).each do |file|
