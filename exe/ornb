@@ -63,13 +63,12 @@ module Ornb
       puts "target_file: "+file
       File.readlines(file).each_with_index do |line, i|
         line.scan(/\[\[(.+?)\]\]/) do |match|
-          p match
           link = (m = match[0].match(/(.+)\]\[/) )? m[1] : match[0].to_s
           unless File.exists?(link)
             next if link.match(/^\#/)
             printf("%4d:%s:",i,link)
             printf("%s\n",line.chomp)
-            search_file(link)
+            find_file(link)
           end
         end
       end
@@ -93,7 +92,7 @@ module Ornb
       cont
     end
 
-    def search_file(link)
+    def find_file(link)
       p file = File.basename(link)
       system "find . -name #{file}"
     end
