@@ -3,6 +3,7 @@ require 'colorize'
 require 'thor'
 require 'fileutils'
 require "ornb"
+require "open3"
 
 module Ornb
   class CLI < Thor
@@ -64,18 +65,12 @@ module Ornb
       File.readlines(file).each_with_index do |line, i|
         line.scan(/\[\[(.+?)\]\]/) do |match|
           link = (m = match[0].match(/(.+)\]\[/) )? m[1] : match[0].to_s
-          unless File.exists?(link)
-            next if link.match(/^\#/)
-            printf("%4d:%s:",i,link)
-            printf("%s\n",line.chomp)
-            find_file(link)
-          end
+          find_file(link, i, line)
         end
       end
     end
 
     private
-
     def print_dir(file,level,cont)
       level += 1
       return "- [[#{file}]]\n" if level > @max_recur_level
@@ -91,13 +86,17 @@ module Ornb
       end
       cont
     end
-
-    def find_file(link)
-      p file = File.basename(link)
-      system "find . -name #{file}"
+    def find_file(link, i_num, line)
+      unless File.exists?(link)
+        return if link.match(/^\#/)
+        print "line #{i_num}:#{link}:".red
+        printf("%s\n",line.chomp)
+        p file = File.basename(link)
+        command =  "find . -name #{file}"
+        out, _err, _status = Open3.capture3 command
+        puts out.blue
+      end
     end
-
-
   end
 end
 

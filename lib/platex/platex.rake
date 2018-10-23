@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require 'colorize'
+
 file = 'mid_presentation'
 
 desc 'push platex.rake to local gem'
@@ -54,9 +56,12 @@ task :platex do
   File.open("#{file}.tex",'w'){ |f| f.print cont }
   system "platex #{file}"
   commands = ["platex #{file}.tex",
-              "bibtex #{file}.tex",
+              "pbibtex #{file}", # change bibtex to pbibtex for junsrt
               "platex #{file}.tex",
               "dvipdfmx #{file}.dvi",
               "open #{file}.pdf"]
-  commands.each{|com| system com}
+  commands.each do |com|
+    puts com.red
+    system com
+  end
 end
