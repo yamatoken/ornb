@@ -54,7 +54,9 @@ module Ornb
       dir = ARGV[1] || '.'
       @max_recur_level = ARGV[2].to_i || 2
       system 'rm -f *~ *# #*'
-      cont =  print_dir(dir, 0, '')
+      file = argv[0] || '.'
+      $deep_level = argv[1].to_i || 2
+      cont =  print_dir(file, 0, '')
       print "\n\n"+cont+"\n"
     end
 
