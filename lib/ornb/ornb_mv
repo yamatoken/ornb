@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+puts "When you mv directory, all the links in README.org should be adjusted ..."
+puts "DRYRUN Usage: ruby ornb.rb mv SOURCE TARGET [README.org]"
+puts "REALRUN Usage: ruby ornb.rb mv_real SOURCE TARGET [README.org]"
+
+p command = ARGV[0] || 'mv_real'
+real_run = (command == 'mv_real') ? true : false
+p source = ARGV[1]
+p target = ARGV[2]
+p name = File.basename(target,'.*')
+if source.include?('*')
+  Dir.glob(source).each do |file|
+    p extname = File.extname(file)
+    FileUtils::DryRun.mv(file, name+extname, verbose: true)
+  end
+end
+p i_file = ARGV[3] || "README.org"
+o_file = 'tmp.org'
+
+File.write o_file, File.read(i_file).gsub!(source, target)
+if real_run
+  FileUtils.mv(source, target, verbose: true)
+  p system "mv #{o_file} #{i_file}"
+else
+  FileUtils::DryRun.mv(source, target, verbose: true)
+end
