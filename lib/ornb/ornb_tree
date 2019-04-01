@@ -30,10 +30,12 @@ def head_check(line, max_level)
   end
 end
 
+puts "Usage: ornb_tree [LEVEL=2] [DIR='.']"
 max_level = ARGV[0] || 2
+dir = ARGV[1] || '.'
 
 $tree = []
-mk_tree('.',1)
+mk_tree(dir,1)
 
 $tree.each do |line|
   print head_check(line, max_level.to_i)
