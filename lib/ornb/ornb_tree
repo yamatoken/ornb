@@ -1,10 +1,20 @@
 #!/usr/bin/env ruby
+def sort_num(list)
+  split_list = []
+  list.each do |file|
+    split_list << [file.split('_')[0],file]
+  end
+  split_list.sort! do |a,b|
+    File.basename(a[0]).to_i <=> File.basename(b[0]).to_i
+  end
+  return split_list.inject([]){|result, list| result << list[1]}
+end
 
 def mk_tree(dir, level)
   $tree <<  "*"*level + " [["+dir+"]]"
   level += 1
   dirs = []
-  Dir.glob(File.join(dir,'*')).each do |file|
+  sort_num(Dir.glob(File.join(dir,'*')).sort).each do |file|
     b_file = File.basename(file)
     unless File.directory?(file)
       $tree <<  "-"*level + " [["+File.join(dir,b_file)+"]["+File.basename(b_file)+"]]"
