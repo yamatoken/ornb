@@ -74,21 +74,6 @@ module Ornb
     end
 
     private
-    def print_dir(file,level,cont)
-      level += 1
-      return "- [[#{file}]]\n" if level > @max_recur_level
-      print "*"*level+" #{file}\n"
-      dir = File.join(file,"*")
-      Dir.glob(dir).each do |file|
-        case File.ftype(file)
-        when 'link', 'file'
-          cont << "- [[#{file}]]\n"
-        when 'directory'
-          print print_dir(file,level,'')
-        end
-      end
-      cont
-    end
     def find_file(link, i_num, line)
       unless File.exists?(link)
         return if link.match(/^\#/)
