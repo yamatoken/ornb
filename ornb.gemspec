@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{org and ruby base note book}
   spec.description   = %q{org and ruby base note book}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "http://hogehoge"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
