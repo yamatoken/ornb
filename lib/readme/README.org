@@ -6,7 +6,7 @@
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 
-#+SETUPFILE: /Users/bob/Github/ornb/lib/org-html-themes/setup/theme-readtheorg.setup
+#+SETUPFILE: THEME_SETUP_FILE
 
 * README.org
 ** 記述

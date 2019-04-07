@@ -7,31 +7,27 @@ module Ornb
   class CLI < Thor
     def initialize(*argv)
       super(*argv)
+      @lib = File.expand_path("../../../lib", __FILE__)
     end
 
     desc 'readme', 'make initial README.org'
     def readme(*argv)
-      lib = File.expand_path("../../../lib", __FILE__)
-      setup = File.expand_path(File.join("../../../lib",
-                                         "org-html-themes",
-                                         "setup",
-                                         "theme-readtheorg.setup"),
-                               __FILE__)
-      p s_file = File.join(lib, 'readme', 'README.org')
+
+      setup = File.join(@lib,"theme-readtheorg.setup")
+      s_file = File.join(@lib, 'readme', 'README.org')
       p Dir.entries('.')
       if File.exists?('./README.org')
         puts "README.org exists. "
       else
-        p setup
-        FileUtils.cp(s_file, '.')
+        File.write('README.org',
+                   File.read(s_file).gsub('THEME_SETUP_FILE',setup))
       end
     end
 
     desc 'plot', 'cp gnuplot.rake'
     def plot(*argv)
-      lib = File.expand_path("../../lib", __FILE__)
       target = 'gnuplot.rake'
-      p s_file = File.join(lib, File.basename(target,'.rake'), target)
+      p s_file = File.join(@lib, File.basename(target,'.rake'), target)
       p Dir.entries('.')
       if File.exists?(target)
         puts target + " exists. "
@@ -42,9 +38,8 @@ module Ornb
 
     desc 'platex', 'cp platex.rake'
     def platex(*argv)
-      lib = File.expand_path("../../lib", __FILE__)
       target = 'platex.rake'
-      p s_file = File.join(lib, File.basename(target,'.rake'), target)
+      p s_file = File.join(@lib, File.basename(target,'.rake'), target)
       p Dir.entries('.')
       if File.exists?(target)
         puts target + " exists. "
