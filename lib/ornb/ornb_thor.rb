@@ -11,12 +11,18 @@ module Ornb
 
     desc 'readme', 'make initial README.org'
     def readme(*argv)
-      lib = File.expand_path("../../lib", __FILE__)
+      lib = File.expand_path("../../../lib", __FILE__)
+      setup = File.expand_path(File.join("../../../lib",
+                                         "org-html-themes",
+                                         "setup",
+                                         "theme-readtheorg.setup"),
+                               __FILE__)
       p s_file = File.join(lib, 'readme', 'README.org')
       p Dir.entries('.')
       if File.exists?('./README.org')
         puts "README.org exists. "
       else
+        p setup
         FileUtils.cp(s_file, '.')
       end
     end
