@@ -12,7 +12,6 @@ module Ornb
 
     desc 'readme', 'make initial README.org'
     def readme(*argv)
-
       setup = File.join(@lib,"theme-readtheorg.setup")
       s_file = File.join(@lib, 'readme', 'README.org')
       p Dir.entries('.')
