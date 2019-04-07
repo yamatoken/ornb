@@ -1,12 +1,12 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages
 #+TITLE: irnb(i ruby note book) or org ruby note book
-#+AUTHOR: 関西学院大学・理工学部・情報科学科　西谷滋人 2018
+#+AUTHOR: 西谷滋人 2018-19
 #+EMAIL:     (concat "nishitani@kwansei.ac.jp")
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 
-#+SETUPFILE: /Users/bob/org-html-themes/setup/theme-readtheorg-local-daddygongon.setup
+#+SETUPFILE: /Users/bob/Github/ornb/lib/theme-readtheorg.setup
 
 * Irnb
 ipynbみたいにnotebookをorg+rubyで容易に作成できるsystem
