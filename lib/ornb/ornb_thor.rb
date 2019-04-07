@@ -71,6 +71,12 @@ module Ornb
       end
     end
 
+    desc 'org_all_to_html', 'convert all ornb of [DIRS] to html'
+    def org_all_to_html(*argv)
+      dirs = argv[0] || '**/*'
+      org_to_html(dirs)
+    end
+
     private
     def find_file(link, i_num, line)
       unless File.exists?(link)
