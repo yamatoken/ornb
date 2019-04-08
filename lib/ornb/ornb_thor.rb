@@ -8,6 +8,7 @@ module Ornb
     def initialize(*argv)
       super(*argv)
       @lib = File.expand_path("../../../lib", __FILE__)
+      puts 'ornb: org and ruby based note book by Shigeto R. Nishitani in 2019'
     end
 
     desc 'readme', 'make initial README.org'

@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2019-04-07 日 11:53 -->
+<!-- 2019-04-08 月 09:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>irnb(i ruby note book) or org ruby note book</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="関西学院大学・理工学部・情報科学科　西谷滋人 2018" />
+<meta name="author" content="西谷滋人 2018-19" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -180,12 +180,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -262,33 +256,33 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2861dd3">1. Irnb</a></li>
-<li><a href="#org0b2489e">2. background</a>
+<li><a href="#org6533837">1. Irnb</a></li>
+<li><a href="#orgd4d20b1">2. background</a>
 <ul>
-<li><a href="#org83d1d47">2.1. 知識はツリー構造でない</a></li>
-<li><a href="#orgdb09c9d">2.2. 問題がセミラティスで解決する？</a></li>
-<li><a href="#orgf11e399">2.3. ./test</a></li>
-<li><a href="#org7242544">2.4. ./bin</a></li>
-<li><a href="#org669ecf0">2.5. ./pkg</a></li>
-<li><a href="#org3974a13">2.6. platex</a></li>
+<li><a href="#org65835ae">2.1. 知識はツリー構造でない</a></li>
+<li><a href="#org304b427">2.2. 問題がセミラティスで解決する？</a></li>
+<li><a href="#org62d0ee8">2.3. ./test</a></li>
+<li><a href="#org7413b36">2.4. ./bin</a></li>
+<li><a href="#org1113651">2.5. ./pkg</a></li>
+<li><a href="#orgb6c46c3">2.6. platex</a></li>
 </ul>
 </li>
-<li><a href="#org14c784e">3. Installation</a></li>
-<li><a href="#org209ea30">4. Usage</a>
+<li><a href="#org265e557">3. Installation</a></li>
+<li><a href="#org2dd1c05">4. Usage</a>
 <ul>
-<li><a href="#orgd72f4d4">4.1. readme</a></li>
-<li><a href="#org4c02f2a">4.2. link_check</a></li>
+<li><a href="#orgde59dbd">4.1. readme</a></li>
+<li><a href="#org7ecc157">4.2. link_check</a></li>
 </ul>
 </li>
-<li><a href="#orgb07c16e">5. Development</a>
+<li><a href="#org7257eda">5. Development</a>
 <ul>
-<li><a href="#orga13fd60">5.1. 基本コンセプト</a>
+<li><a href="#orgcd4d5f3">5.1. 基本コンセプト</a>
 <ul>
-<li><a href="#org004031b">rubyとpythonは違うよね．</a></li>
+<li><a href="#orgbcf87c7">rubyとpythonは違うよね．</a></li>
 </ul>
 </li>
-<li><a href="#orgfbecf4b">5.2. command line appliにしてしまう，softwareを作るというより，systemを作るという視点．</a></li>
-<li><a href="#orgab52e4f">5.3. gnuplot</a></li>
+<li><a href="#orga09222b">5.2. command line appliにしてしまう，softwareを作るというより，systemを作るという視点．</a></li>
+<li><a href="#org340cbf5">5.3. gnuplot</a></li>
 <li><a href="#contributing">5.4. Contributing</a></li>
 <li><a href="#license">5.5. License</a></li>
 <li><a href="#code-of-conduct">5.6. Code of Conduct</a></li>
@@ -298,8 +292,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org2861dd3" class="outline-2">
-<h2 id="org2861dd3"><span class="section-number-2">1</span> Irnb</h2>
+<div id="outline-container-org6533837" class="outline-2">
+<h2 id="org6533837"><span class="section-number-2">1</span> Irnb</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 ipynbみたいにnotebookをorg+rubyで容易に作成できるsystem
@@ -311,12 +305,12 @@ org_ruby_general_note_bookなんて名前がいいかな．
 </div>
 </div>
 
-<div id="outline-container-org0b2489e" class="outline-2">
-<h2 id="org0b2489e"><span class="section-number-2">2</span> background</h2>
+<div id="outline-container-orgd4d20b1" class="outline-2">
+<h2 id="orgd4d20b1"><span class="section-number-2">2</span> background</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org83d1d47" class="outline-3">
-<h3 id="org83d1d47"><span class="section-number-3">2.1</span> 知識はツリー構造でない</h3>
+<div id="outline-container-org65835ae" class="outline-3">
+<h3 id="org65835ae"><span class="section-number-3">2.1</span> 知識はツリー構造でない</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 文書作成は規模の小さいうちはいいが大きくなるにつれて破綻する．
@@ -349,8 +343,8 @@ gemspecは面白い役割を持ったfileかも．
 </div>
 </div>
 
-<div id="outline-container-orgdb09c9d" class="outline-3">
-<h3 id="orgdb09c9d"><span class="section-number-3">2.2</span> 問題がセミラティスで解決する？</h3>
+<div id="outline-container-org304b427" class="outline-3">
+<h3 id="org304b427"><span class="section-number-3">2.2</span> 問題がセミラティスで解決する？</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 アレクサンダーのセミラティスはいいアイデアかもしれないが，それが
@@ -375,8 +369,8 @@ gemspecは面白い役割を持ったfileかも．
 </p>
 </div>
 </div>
-<div id="outline-container-orgf11e399" class="outline-3">
-<h3 id="orgf11e399"><span class="section-number-3">2.3</span> ./test</h3>
+<div id="outline-container-org62d0ee8" class="outline-3">
+<h3 id="org62d0ee8"><span class="section-number-3">2.3</span> ./test</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li><a href="./test/test_helper.rb">./test/test_helper.rb</a></li>
@@ -384,8 +378,8 @@ gemspecは面白い役割を持ったfileかも．
 </ul>
 </div>
 </div>
-<div id="outline-container-org7242544" class="outline-3">
-<h3 id="org7242544"><span class="section-number-3">2.4</span> ./bin</h3>
+<div id="outline-container-org7413b36" class="outline-3">
+<h3 id="org7413b36"><span class="section-number-3">2.4</span> ./bin</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li><a href="./bin/setup">./bin/setup</a></li>
@@ -393,8 +387,8 @@ gemspecは面白い役割を持ったfileかも．
 </ul>
 </div>
 </div>
-<div id="outline-container-org669ecf0" class="outline-3">
-<h3 id="org669ecf0"><span class="section-number-3">2.5</span> ./pkg</h3>
+<div id="outline-container-org1113651" class="outline-3">
+<h3 id="org1113651"><span class="section-number-3">2.5</span> ./pkg</h3>
 <div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li><a href="./pkg/ornb-0.1.0.gem">./pkg/ornb-0.1.0.gem</a></li>
@@ -438,8 +432,8 @@ ornb tree
 </div>
 </div>
 
-<div id="outline-container-org3974a13" class="outline-3">
-<h3 id="org3974a13"><span class="section-number-3">2.6</span> platex</h3>
+<div id="outline-container-orgb6c46c3" class="outline-3">
+<h3 id="orgb6c46c3"><span class="section-number-3">2.6</span> platex</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 <a href="file:///Users/bob/materials_science/boundary/shiraki">file:///Users/bob/materials_science/boundary/shiraki</a>でformatの定まったpdf作成を試作．
@@ -454,8 +448,8 @@ ornb tree
 </div>
 </div>
 
-<div id="outline-container-org14c784e" class="outline-2">
-<h2 id="org14c784e"><span class="section-number-2">3</span> Installation</h2>
+<div id="outline-container-org265e557" class="outline-2">
+<h2 id="org265e557"><span class="section-number-2">3</span> Installation</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Add this line to your application's Gemfile:
@@ -484,8 +478,8 @@ $ gem install irnb
 </div>
 </div>
 
-<div id="outline-container-org209ea30" class="outline-2">
-<h2 id="org209ea30"><span class="section-number-2">4</span> Usage</h2>
+<div id="outline-container-org2dd1c05" class="outline-2">
+<h2 id="org2dd1c05"><span class="section-number-2">4</span> Usage</h2>
 <div class="outline-text-2" id="text-4">
 <pre class="example">
 Commands:
@@ -494,16 +488,16 @@ Commands:
   ornb readme            # make initial README.org
 </pre>
 </div>
-<div id="outline-container-orgd72f4d4" class="outline-3">
-<h3 id="orgd72f4d4"><span class="section-number-3">4.1</span> readme</h3>
+<div id="outline-container-orgde59dbd" class="outline-3">
+<h3 id="orgde59dbd"><span class="section-number-3">4.1</span> readme</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 デフォルトのREADME.orgを作る
 </p>
 </div>
 </div>
-<div id="outline-container-org4c02f2a" class="outline-3">
-<h3 id="org4c02f2a"><span class="section-number-3">4.2</span> link_check</h3>
+<div id="outline-container-org7ecc157" class="outline-3">
+<h3 id="org7ecc157"><span class="section-number-3">4.2</span> link_check</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 FILE(デフォルトはREADME.org)のlink切れをチェック．切れている時には配下のdirectoryから候補を提示．
@@ -516,17 +510,17 @@ FILE(デフォルトはREADME.org)のlink切れをチェック．切れている
 </div>
 </div>
 
-<div id="outline-container-orgb07c16e" class="outline-2">
-<h2 id="orgb07c16e"><span class="section-number-2">5</span> Development</h2>
+<div id="outline-container-org7257eda" class="outline-2">
+<h2 id="org7257eda"><span class="section-number-2">5</span> Development</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orga13fd60" class="outline-3">
-<h3 id="orga13fd60"><span class="section-number-3">5.1</span> 基本コンセプト</h3>
+<div id="outline-container-orgcd4d5f3" class="outline-3">
+<h3 id="orgcd4d5f3"><span class="section-number-3">5.1</span> 基本コンセプト</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
-<div id="outline-container-org004031b" class="outline-4">
-<h4 id="org004031b">rubyとpythonは違うよね．</h4>
-<div class="outline-text-4" id="text-org004031b">
+<div id="outline-container-orgbcf87c7" class="outline-4">
+<h4 id="orgbcf87c7">rubyとpythonは違うよね．</h4>
+<div class="outline-text-4" id="text-orgbcf87c7">
 <p>
 rubyの世界に住んでいて，pythonを始めるとその文化の違いに驚く
 </p>
@@ -594,8 +588,8 @@ scaffoldを提供する予定．
 </div>
 </div>
 </div>
-<div id="outline-container-orgfbecf4b" class="outline-3">
-<h3 id="orgfbecf4b"><span class="section-number-3">5.2</span> command line appliにしてしまう，softwareを作るというより，systemを作るという視点．</h3>
+<div id="outline-container-orga09222b" class="outline-3">
+<h3 id="orga09222b"><span class="section-number-3">5.2</span> command line appliにしてしまう，softwareを作るというより，systemを作るという視点．</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Github, Github edu&#x2026;</li>
@@ -604,8 +598,8 @@ scaffoldを提供する予定．
 </div>
 </div>
 
-<div id="outline-container-orgab52e4f" class="outline-3">
-<h3 id="orgab52e4f"><span class="section-number-3">5.3</span> gnuplot</h3>
+<div id="outline-container-org340cbf5" class="outline-3">
+<h3 id="org340cbf5"><span class="section-number-3">5.3</span> gnuplot</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 rubyのgnuplotを使うのは，データの加工から表示までを一気にしたいから．
@@ -647,8 +641,8 @@ data plotの視点は，
 </div>
 </div>
 
-<div id="outline-container-org351ce67" class="outline-3">
-<h3 id="contributing"><a id="org351ce67"></a><span class="section-number-3">5.4</span> Contributing</h3>
+<div id="outline-container-orgb3de1fa" class="outline-3">
+<h3 id="contributing"><a id="orgb3de1fa"></a><span class="section-number-3">5.4</span> Contributing</h3>
 <div class="outline-text-3" id="text-contributing">
 <p>
 Bug reports and pull requests are welcome on GitHub at
@@ -660,8 +654,8 @@ Covenant</a> code of conduct.
 </div>
 </div>
 
-<div id="outline-container-org12945a0" class="outline-3">
-<h3 id="license"><a id="org12945a0"></a><span class="section-number-3">5.5</span> License</h3>
+<div id="outline-container-org2b5e11b" class="outline-3">
+<h3 id="license"><a id="org2b5e11b"></a><span class="section-number-3">5.5</span> License</h3>
 <div class="outline-text-3" id="text-license">
 <p>
 The gem is available as open source under the terms of the
@@ -670,8 +664,8 @@ The gem is available as open source under the terms of the
 </div>
 </div>
 
-<div id="outline-container-org8a09d34" class="outline-3">
-<h3 id="code-of-conduct"><a id="org8a09d34"></a><span class="section-number-3">5.6</span> Code of Conduct</h3>
+<div id="outline-container-org9c51689" class="outline-3">
+<h3 id="code-of-conduct"><a id="org9c51689"></a><span class="section-number-3">5.6</span> Code of Conduct</h3>
 <div class="outline-text-3" id="text-code-of-conduct">
 <p>
 Everyone interacting in the Irnb project's codebases, issue trackers,
@@ -684,8 +678,8 @@ of conduct</a>.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: 関西学院大学・理工学部・情報科学科　西谷滋人 2018</p>
-<p class="date">Created: 2019-04-07 日 11:53</p>
+<p class="author">Author: 西谷滋人 2018-19</p>
+<p class="date">Created: 2019-04-08 月 09:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
