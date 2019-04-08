@@ -2,7 +2,7 @@ module Ornb
   class CLI < Thor
     private
     def org_to_html(dirs)
-      replace = "#{ENV{'HOME'}/.emacs.d/theme-readtheorg.setup"
+      replace = "#{ENV['HOME']}/.emacs.d/theme-readtheorg.setup"
       Dir.glob(dirs).each do |file|
         if File.extname(file)=='.org'
           ["/Users/bob/org-html-themes/setup/theme-readtheorg.setup",
