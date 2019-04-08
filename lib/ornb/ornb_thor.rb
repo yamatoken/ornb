@@ -111,11 +111,9 @@ module Ornb
 
     desc 'say_hello', 'say hello'
     def say_hello(*argv)
-      name = argv[0]
-      say_hello(name)
+      name = argv[0] || 'body'
+      puts "Hello #{name}."
     end
-
-
 
     private
     def find_file(link, i_num, line)
