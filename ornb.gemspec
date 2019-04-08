@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Shigeto R. Nishitani"]
   spec.email         = ["shigeto_nishitani@me.com"]
 
-  spec.summary       = %q{org and ruby base note book}
-  spec.description   = %q{org and ruby base note book}
+  spec.summary       = %q{org and ruby based note book}
+  spec.description   = %q{org and ruby based note book}
   spec.homepage      = "http://hogehoge"
   spec.license       = "MIT"
 
