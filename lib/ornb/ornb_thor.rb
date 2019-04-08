@@ -13,14 +13,19 @@ module Ornb
 
     desc 'readme', 'make initial README.org'
     def readme(*argv)
-      setup = File.join(@lib,"theme-readtheorg.setup")
+      setup = "#{ENV['HOME']}/.emacs.d/org-mode/theme-readtheorg.setup"
       s_file = File.join(@lib, 'readme', 'README.org')
       p Dir.entries('.')
       if File.exists?('./README.org')
         puts "README.org exists. "
       else
-        File.write('README.org',
-                   File.read(s_file).gsub('THEME_SETUP_FILE',setup))
+        FileUtils.cp(s_file, '.', verbose: true)
+      end
+      if File.exists?(setup)
+        puts "theme-readtheorg.setup exists. "
+      else
+        FileUtils.cp(File.join(@lib,File.basename(setup)), setup,
+                     verbose: true)
       end
     end
 

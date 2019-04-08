@@ -6,7 +6,7 @@
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 
-#+SETUPFILE: THEME_SETUP_FILE
+#+SETUPFILE: ~/.emacs.d/org-mode/theme-readtheorg.setup
 
 * README.org
 ** 記述
