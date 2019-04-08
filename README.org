@@ -6,7 +6,7 @@
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 
-#+SETUPFILE: /Users/bob/Github/ornb/lib/theme-readtheorg.setup
+#  +SETUPFILE: /Users/bob/Github/ornb/lib/theme-readtheorg.setup
 
 * Irnb
 ipynbみたいにnotebookをorg+rubyで容易に作成できるsystem
