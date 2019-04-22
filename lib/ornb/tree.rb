@@ -13,6 +13,7 @@ module Ornb
     end
 
     def mk_tree(dir, level)
+      dir = './'+dir unless dir[0..1]=='./'
       @tree <<  "*"*level + " [["+dir+"]]"
       level += 1
       dirs = []
