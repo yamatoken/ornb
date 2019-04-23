@@ -17,7 +17,8 @@ module Ornb
       s_file = File.join(@lib, 'readme', 'README.org')
       p Dir.entries('.')
       if File.exists?('./README.org')
-        puts "README.org exists. "
+        puts setup.green
+        puts "README.org exists. ".red
       else
         FileUtils.cp(s_file, '.', verbose: true)
       end
