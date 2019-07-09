@@ -54,8 +54,6 @@ module Ornb
       end
     end
 
-
-
     desc 'tree', "tree [LEVEL=2] [DIR=\'.\']"
     def tree(*argv)
       max_level = argv[0] || 2
@@ -95,7 +93,6 @@ module Ornb
         file_link(m) if m = line.match(/\[\[file:(.+)\]\]/)
       end
     end
-
 
     desc 'link_check', 'link check'
     def link_check(*argv)
