@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{org and ruby based note book}
   spec.description   = %q{org and ruby based note book}
-  spec.homepage      = "http://hogehoge"
+  spec.homepage      = "https://github.com/daddygongon/ornb"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "> 1.16"
-  spec.add_development_dependency "rake", "~> 12.3.3"
+  spec.add_development_dependency "rake", "~> 13.0.1"
   spec.add_development_dependency "yard", "~> 0.9.20"
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_runtime_dependency "thor"
