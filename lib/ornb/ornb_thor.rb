@@ -42,10 +42,10 @@ module Ornb
       end
     end
 
-    desc 'platex', 'cp platex.rake'
+    desc 'platex [TARGET]', 'cp TARGET || platex.rake from lib/platex'
     def platex(*argv)
-      target = 'platex.rake'
-      p s_file = File.join(@lib, File.basename(target,'.rake'), target)
+      p target = argv[0] || 'platex.rake'
+      p s_file = File.join(@lib, File.basename('platex'), target)
       p Dir.entries('.')
       if File.exists?(target)
         puts target + " exists. "
