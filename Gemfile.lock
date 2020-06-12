@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ornb (0.1.0)
+    ornb (0.1.1)
       colorize
       thor
 
