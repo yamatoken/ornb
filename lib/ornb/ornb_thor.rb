@@ -134,7 +134,9 @@ module Ornb
       #lines.each { |line| v = line.match(/VERSION = (.*)/)[0] }
       #puts v
       s_file = File.join(@lib, "ornb", "version.rb")
-      system "cat #{s_file}"
+      lines = File.readlines("#{s_file}")
+      puts lines[1].chomp
+      #system "cat #{s_file}"
     end
 
     private
