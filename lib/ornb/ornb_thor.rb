@@ -127,9 +127,9 @@ module Ornb
       puts "Hello #{name}."
     end
 
-    desc "version", "version"
+    desc "-v", "version"
 
-    def -(v)
+    def version
       system "cat ./version.rb"
     end
 
