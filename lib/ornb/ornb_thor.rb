@@ -130,7 +130,9 @@ module Ornb
     desc "-v", "version"
 
     def version
-      system "cat ./version.rb"
+      lines = File.readlines("version.rb")
+      v = lines.match(/VERSION = (.*)/)[1]
+      puts v
     end
 
     private
