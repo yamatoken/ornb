@@ -127,12 +127,14 @@ module Ornb
       puts "Hello #{name}."
     end
 
-    desc "-v", "version"
+    desc "version", "version"
 
     def version
-      lines = File.readlines("version.rb")
-      v = lines.match(/VERSION = (.*)/)[1]
-      puts v
+      #lines = File.readlines("version.rb")
+      #lines.each { |line| v = line.match(/VERSION = (.*)/)[0] }
+      #puts v
+      s_file = File.join(@lib, "ornb", "version.rb")
+      system "cat #{s_file}"
     end
 
     private
