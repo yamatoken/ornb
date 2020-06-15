@@ -8,7 +8,7 @@
 
 #+SETUPFILE: ~/.emacs.d/org-mode/theme-readtheorg.setup
 
-* README.org
+* [#B] README.org
 ** 記述
 全ての基本となるREADME.orgの雛形．
 
@@ -18,17 +18,4 @@
 ** html生成
    - c-c c-e h(tml) o(ut)
    で生成してくれる．
-
-** 画像の挿入
-
-#+caption: fig1
-#+name: fig:fig1
-#+ATTR_LATEX: :width 6cm
-[[file:./figure.png]]
-
-- captionは図の内容を説明するもの
-- nameは文章中で〜に示した通りとかする為のやつ
-例: 〜はFig.[[fig:fig1]]に示した通り〜
-- ATTR_LATEXは画像サイズ
-- 最後に使う画像等が置いてある場所
 
