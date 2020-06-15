@@ -26,6 +26,7 @@ module Ornb
       if File.exists?(setup)
         puts "theme-readtheorg.setup exists. "
       else
+        FileUtils.mkdir_p(setup)
         FileUtils.cp(File.join(@lib, File.basename(setup)), setup,
                      verbose: true)
       end
