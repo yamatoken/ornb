@@ -140,6 +140,16 @@ module Ornb
       #system "cat #{s_file}"
     end
 
+    desc "runbook", "mkdir runbook"
+
+    def runbook
+      #terget = runbook
+      s_file = File.join(@lib, "runbook", "convert.rb")
+
+      FileUtils.mkdir("./runbook")
+      FileUtils.cp(s_file, "./runbook", verbose: true)
+    end
+
     private
 
     def find_file(link, i_num, line)
