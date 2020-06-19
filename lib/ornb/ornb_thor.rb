@@ -143,11 +143,9 @@ module Ornb
     desc "runbook", "mkdir runbook"
 
     def runbook
-      #terget = runbook
-      s_file = File.join(@lib, "runbook", "convert.rb")
+      s_file = File.join(@lib, "runbook")
 
-      FileUtils.mkdir("./runbook")
-      FileUtils.cp(s_file, "./runbook", verbose: true)
+      FileUtils.cp_r(s_file, ".", verbose: true)
     end
 
     private
