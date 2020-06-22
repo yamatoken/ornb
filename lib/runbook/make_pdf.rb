@@ -11,8 +11,23 @@ Runbook.book "Make PDF" do
     step "Load org file" do
       note "Load org file"
       ruby_command do
-        $file = Dir.glob("*.org")[0].match(/(.*).org/)[1]
-        puts "your org file is " + $file.red + " ?"
+        str = Dir.glob("*.org")
+        #p str
+        str.each do |name|
+          puts "your org file is " + name.red + " ? (y or n)"
+          res = $stdin.gets.chomp
+
+          if res == "y"
+            $file = name.match(/(.*).org/)[1]
+            break
+          elsif res == "n"
+            if name == str[str.size - 1]
+              puts "This directory not have the objective file".red
+              exit
+            end
+          end
+        end
+        #$file = Dir.glob("*.org")[0].match(/(.*).org/)[1]
       end
     end
     step "Make tex file" do
@@ -50,9 +65,11 @@ Runbook.book "Make PDF" do
       end
     end
     step "Move report" do
-      note "Move report and do tidy"
+      note "Move report"
       ruby_command do
-        commands = ["tidy", "mkdir report", "mv -f #{$t_file}.* ./report", "open ./report/#{$t_file}.pdf"]
+        commands = ["mkdir report",
+                    "mv -f #{$t_file}.* ./report",
+                    "open ./report/#{$t_file}.pdf"]
         commands.each { |com| system com }
       end
     end
