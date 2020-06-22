@@ -143,9 +143,21 @@ module Ornb
     desc "runbook", "mkdir runbook"
 
     def runbook
+      setup = "#{ENV["HOME"]}/.rbenv/shims/runbook"
       s_file = File.join(@lib, "runbook")
 
-      FileUtils.cp_r(s_file, ".", verbose: true)
+      if File.exists?("./runbook")
+        puts setup.green
+        puts "runbook exists. ".red
+      else
+        FileUtils.cp_r(s_file, ".", verbose: true)
+      end
+      if File.exists?(setup)
+        puts "gem runbook exists. "
+      else
+        command = "gem install runbook"
+        system command
+      end
     end
 
     private
