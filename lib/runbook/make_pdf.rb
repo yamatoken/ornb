@@ -45,8 +45,14 @@ Runbook.book "Make PDF" do
         commands = ["platex #{$t_file}.tex",
                     "bibtex #{$t_file}.tex",
                     "platex #{$t_file}.tex",
-                    "dvipdfmx #{$t_file}.dvi",
-                    "open #{$t_file}.pdf"]
+                    "dvipdfmx #{$t_file}.dvi"]
+        commands.each { |com| system com }
+      end
+    end
+    step "Move report" do
+      note "Move report and do tidy"
+      ruby_command do
+        commands = ["tidy", "mkdir report", "mv -f #{$t_file}.* ./report", "open ./report/#{$t_file}.pdf"]
         commands.each { |com| system com }
       end
     end
